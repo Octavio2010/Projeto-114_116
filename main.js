@@ -2,7 +2,7 @@ noseX = ""
 noseY = ""
 
 function preload(){
-    
+    mascara = loadImage('mascara_batman.png')
 }
 function setup(){
     canva = createCanvas(650,490);
@@ -20,8 +20,7 @@ function modelLoaded(){
 
 function draw(){
     image(cam, 0, 0, 650, 490)
-    fill("blue") 
-    circle(noseX, noseY, 6)
+    image(mascara, noseX-70, noseY-190, 150, 220)
 }
 
 function gotPoses(results){
@@ -30,4 +29,8 @@ function gotPoses(results){
     noseX = results[0].pose.nose.x
     noseY = results[0].pose.nose.y
     }
+}
+
+function takeSnapshot(){
+    save("batman.png")
 }
